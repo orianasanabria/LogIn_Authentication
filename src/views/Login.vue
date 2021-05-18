@@ -29,9 +29,6 @@
             <b-alert variant="danger" class="mt-4" v-if="error" show>{{
               error
             }}</b-alert>
-            <b-alert variant="success" class="mt-4" v-if="success" show>{{
-              success
-            }}</b-alert>
           </b-form>
         </b-col>
         <b-col cols="12" md="6" class="bg rows">

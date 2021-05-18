@@ -16,6 +16,14 @@ export default new Vuex.Store({
     loggedIn() {
       router.push("home")
     },
+    loggedOut() {
+      router.push("login")
+    },
+    reset(state) {
+      state.user = ""
+      state.pass = ""
+      state.error = false
+    },
     getUser(state, payload) {
       state.user = payload;
     },
@@ -40,6 +48,16 @@ export default new Vuex.Store({
             state.error = reject.message
           }
         );
+    },
+    logout({
+      commit
+    }) {
+      firebase.auth()
+        .signOut()
+        .then((accept) => {
+          commit('loggedOut', accept)
+          commit('reset')
+        });
     },
   },
 })
